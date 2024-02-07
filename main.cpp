@@ -6,13 +6,14 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:19:31 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/05 22:57:18 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:20:02 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ConfigParsing/Parser.hpp"
 #include "./ConfigParsing/StringExtensions.hpp"
 #include "./Request_Response/TmpServer.hpp"
+#include <stdlib.h> // for atoi
 
 int main(int ac, char **av)
 {

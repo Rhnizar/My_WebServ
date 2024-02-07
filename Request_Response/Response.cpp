@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/05 23:43:18 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:30:31 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ std::string	Response::Error_HmlPage(const std::string& stat_code, const std::str
 
 std::string	ReadFile(std::string&	ResPath)
 {
-    std::ifstream file(ResPath);
+    std::ifstream file(ResPath.c_str());
     std::string line;
     std::string res;
 	while (std::getline(file, line))

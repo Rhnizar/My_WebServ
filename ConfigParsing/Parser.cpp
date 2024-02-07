@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:31:57 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/01/31 11:56:54 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:25:37 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,35 @@ void	fillCommonDirectives(CommonDirectives& common, const string& key, const str
 		parseMimeTypes(common, value);
 }
 
+char	*ft_strnstr(const char *str1, const char *str2, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	if (str2[i] == '\0')
+		return ((char *)str1);
+	if (len == 0)
+		return (0);
+	while (str1[i] && i < len)
+	{
+		j = 0;
+		while (str1[i + j] == str2[j] && i + j < len)
+		{
+			if (str2[j + 1] == '\0')
+				return (((char *)&str1[i]));
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 void	Parser::fillLocationDirective(Server& server, CommonDirectives& old_location, ListString_iter& it, const string& befor)
 {
 	string	path = str_utils::trim(it->substr(str_utils::find_first_of(*it, " \t"), it->length()));
 
-	if (befor != "" && !strnstr(path.c_str(), befor.c_str(), befor.length()))
+	if (befor != "" && !ft_strnstr(path.c_str(), befor.c_str(), befor.length()))
 		throw CustomException("location \"" + path + "\" is outside location \"" + befor + "\"");
 
 	if (*(++it) != "{")

@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:12 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/01/25 17:24:40 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:26:21 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <cstring>
 
 
 class RequestLine

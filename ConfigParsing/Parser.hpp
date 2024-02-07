@@ -6,13 +6,14 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:04:45 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/01/31 11:57:19 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:23:38 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Server.hpp"
+#include <algorithm>
 
 class	Parser
 {

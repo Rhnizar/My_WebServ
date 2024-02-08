@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/07 13:30:31 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:46:28 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -309,6 +309,8 @@ void	Response::ft_Response(int clientSocket, Request& Req, Parser& parser)
 	Root_ReqPath = location.getRoot() + Req.getReqLine().getPath();
 	setResPath(Root_ReqPath);
 	std::ifstream File(Root_ReqPath.c_str());
+	std::cout << "Root =  " << location.getRoot() << std::endl;
+	std::cout << "==>    " << Root_ReqPath << std::endl;
 	if(File.is_open())
 	{
 		struct stat fileInfo;

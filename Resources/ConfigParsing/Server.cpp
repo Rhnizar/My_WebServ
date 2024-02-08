@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:56:53 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/01 10:15:40 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:50:37 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ Location				Server::getLocationByPath(const string& _path)
 	}
 	return (l);
 }
+
+
 // Location				Server::getLocationByPath(const string& _path)
 // {
 	

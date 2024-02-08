@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:09 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/01/30 15:21:40 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:12:41 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ void	Request::PrintHttp_Header()
 
 void	Request::Parse_Request(std::string& HttpRequest)
 {
+
+	
 	// Create an input string stream because getline not take string as a parametre 
 	std::istringstream ss(HttpRequest);
 	std::string line;

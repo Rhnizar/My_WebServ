@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/07 13:46:28 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:09:52 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,6 +302,7 @@ void	Response::ft_Response(int clientSocket, Request& Req, Parser& parser)
 
 
 	_host = findHostFromHeaders(Req);
+	
 	server = parser.getServerbyHost(_host);
 	location = server.getLocationByPath(Req.getReqLine().getPath());
 

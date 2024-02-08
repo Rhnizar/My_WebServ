@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:35:32 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/05 22:56:06 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:06:37 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void server(const std::string& fileName, int portno)
 		
 		Request request;
 		request.Parse_Request(httpRequest);
-		// std::cout << httpRequest << std::endl;
+		std::cout << httpRequest << std::endl;
 		// request.getReqLine().PrintReqLine();
 		// request.PrintHttp_Header();
 		Response	response;

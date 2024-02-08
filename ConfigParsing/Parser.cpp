@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 09:31:57 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/07 13:25:37 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:15:43 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -358,6 +358,7 @@ Parser& Parser::operator=(const Parser& _assignment)
 
 Server                Parser::getServerbyHost(const string& _host)
 {
+	std::cout << "_host = " << _host << std::endl;
     int			port = 80;
     VecString	split = str_utils::split(_host, ':');
     if(split.size() == 2)

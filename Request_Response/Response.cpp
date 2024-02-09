@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/09 15:40:10 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:38:23 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,6 +244,9 @@ std::string	findHostFromHeaders(const Request& Req)
 	return _host;
 }
 
+
+
+
 void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, const std::string& _host, const std::string& Root_ReqPath, const Location& location)
 {
 	if(Req.getReqLine().getPath()[Req.getReqLine().getPath().size() - 1] != '/')
@@ -257,9 +260,12 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 	// i need function return file to serve and in case not found file return empty string 
 	// ResPath = getFileByRootRoot_ReqPath(Root_ReqPath);
 	// if(ResPath.empty()) it mean not found file 
-	ResPath = Root_ReqPath + "index.html";
-	std::ifstream FileIndex(ResPath.c_str());
-	if(FileIndex.is_open())
+	ResPath = location.getIndexFilePathByRoot(Root_ReqPath);
+	std::cout << "======>  " << "[" << ResPath << "]" << std::endl;
+	// ResPath = Root_ReqPath + "index.html";
+	// std::ifstream FileIndex(ResPath.c_str());
+	// if(FileIndex.is_open())
+	if(ResPath.empty() == 0)
 	{
 		response = Fill_Response("200", "OK", 0, location);
 		//servi file 

@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:13:37 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/05 23:13:37 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:39:18 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ class CommonDirectives
 		VecString			getTryFiles() const;
 		MapStringString		getMimeTypes() const;   
 		string				getMimeTypeByKey(const string& _key);
+		string            	getIndexFilePathByRoot(const string& _value) const;
 };

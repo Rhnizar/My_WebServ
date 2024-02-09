@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommonDirectives.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaouki <kchaouki@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:48:02 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/01/30 16:08:00 by kchaouki         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:41:27 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,4 +213,20 @@ string				CommonDirectives::getMimeTypeByKey(const string& _key)
 		if (it->first == _key)
 			return (it->second);
 	return ("text/html");
+}
+
+
+
+string            CommonDirectives::getIndexFilePathByRoot(const string& _value) const
+{
+    VecString out = str_utils::proSplit(index);
+    string fullPath;
+    for (VecString_iter it = out.begin(); it != out.end();it++)
+    {
+        fullPath = _value + str_utils::remove_quotes(*it);
+        std::ifstream file(fullPath);
+        if (file.is_open())
+            return (fullPath);
+    }
+    return ("");
 }

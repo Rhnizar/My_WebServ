@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:48:02 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/09 16:41:27 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/09 17:36:05 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,8 +214,6 @@ string				CommonDirectives::getMimeTypeByKey(const string& _key)
 			return (it->second);
 	return ("text/html");
 }
-
-
 
 string            CommonDirectives::getIndexFilePathByRoot(const string& _value) const
 {

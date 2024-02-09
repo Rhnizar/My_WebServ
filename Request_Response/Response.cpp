@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/08 12:09:52 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:40:10 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,6 +254,9 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 		close(clientSocket);
 		return ;
 	}
+	// i need function return file to serve and in case not found file return empty string 
+	// ResPath = getFileByRootRoot_ReqPath(Root_ReqPath);
+	// if(ResPath.empty()) it mean not found file 
 	ResPath = Root_ReqPath + "index.html";
 	std::ifstream FileIndex(ResPath.c_str());
 	if(FileIndex.is_open())

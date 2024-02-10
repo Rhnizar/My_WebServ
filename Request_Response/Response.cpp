@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/09 17:32:12 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:02:31 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ std::string	Response::Fill_Response(std::string	Stat_Code, std::string	Stat_Msg,
                 "Content-Type: " + ResHeader.getContentType() + "\r\n" +
                 "Content-Length: " + ResHeader.getContentLength() + "\r\n" +
                 "\r\n" + ResHeader.getContentFile();
+	std::cout << "Response =  \n" << response << std::endl;
     return response;
 }
 
@@ -250,6 +251,7 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 	{
 		response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: http://"
 				 	+ _host + Req.getReqLine().getPath() + "/\r\n\r\n";
+		std::cout << "Response 301  =  \n" << response << std::endl;
 		send(clientSocket, response.c_str(), response.size(), 0);
 		close(clientSocket);
 		return ;
@@ -311,8 +313,8 @@ void	Response::ft_Response(int clientSocket, Request& Req, Parser& parser)
 	
 	server = parser.getServerbyHost(_host);
 	location = server.getLocationByPath(Req.getReqLine().getPath());
-
 	
+	std::cout << "Req.getReqLine().getPath()  " << Req.getReqLine().getPath() << std::endl;
 	Root_ReqPath = location.getRoot() + Req.getReqLine().getPath();
 	setResPath(Root_ReqPath);
 	std::ifstream File(Root_ReqPath.c_str());

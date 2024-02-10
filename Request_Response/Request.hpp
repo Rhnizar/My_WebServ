@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:12 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/07 13:26:21 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:27:32 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <vector>
 #include <sstream>
 #include <cstring>
+#include "../ConfigParsing/StringExtensions.hpp"
+// #include <map>
 
 
 class RequestLine
@@ -24,6 +26,8 @@ class RequestLine
 		std::string Method;
 		std::string Path;
 		std::string HttpVersion;
+		std::vector<std::pair<std::string, std::string> > Query_Params;
+		// std::map<std::string, std::string> Query_Params;
 	public:
 		RequestLine();
 		~RequestLine();

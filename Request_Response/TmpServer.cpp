@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:35:32 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/08 12:06:37 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:08:59 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void error(std::string msg)
 void server(const std::string& fileName, int portno)
 {
 	Parser parser(fileName);
+	parser.dump();
 	
 	int sockfd, newsockfd, n;
 	struct sockaddr_in serv_add, cli_add;

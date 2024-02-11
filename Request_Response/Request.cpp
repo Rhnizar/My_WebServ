@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:09 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/10 19:54:33 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:45:17 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,36 +71,32 @@ void	RequestLine::Parse_ReqLine(std::string line)
 	setPath(line.substr(pos1 + 1, pos2 - pos1 - 1));
 	setHttpVersion(line.substr(pos3 + 1));
 	
-	size_t pos = getPath().find('?');
-	// std::string queryparams;
-	// queryparams = getPath().substr(pos);
 	std::cout << "Old	ReqPath ====>>>      " << getPath() << std::endl;
-	// setPath(getPath().substr(0, pos));
-	if (pos != std::string::npos)
+	size_t	pos = getPath().find('?');
+	size_t	TmpPos = pos;
+	while (pos != std::string::npos && getPath()[pos] == '?')
+		pos++;
+	if (pos != std::string::npos && pos != getPath().size() - 1)
 	{
     	std::string queryparams = getPath().substr(pos);
-    	setPath(getPath().substr(0, pos));
-		// here fill vector the Query_Params;
+		std::cout << "getPath() " << getPath() << std::endl;
+		std::cout << "queryparams ====>>>      " << queryparams << std::endl;
+		// Set the path without query parameters
+    	setPath(getPath().substr(0, TmpPos));
+		// here Parse query parameters and fill vector the Query_Params;
 		std::vector<std::string> split1 = str_utils::split(queryparams, '&');
-
 		for(size_t i=0; i<split1.size(); i++)
 		{
 			size_t p = split1[i].find('=');
 			if(p != std::string::npos)
 				Query_Params.push_back(std::make_pair(split1[i].substr(0, p), split1[i].substr(p + 1)));
-			// else
-			// 	Query_Params.push_back(std::make_pair("", ""));
 		}
 		for(size_t i=0; i<Query_Params.size(); i++)
 		{
 			std::cout << "Key = " << Query_Params[i].first << "			";
 			std::cout << "Value = " << Query_Params[i].second << std::endl;
 		}
-		std::cout << "queryparams ====>>>      " << queryparams << std::endl;
 	}
-	std::cout << "ReqPath ====>>>      " << getPath() << std::endl;
-
-	// std::cout << "lenght  = " << getPath() << "==>  " << getPath().length() << std::endl;
 }
 
 
@@ -162,8 +158,6 @@ void	Request::PrintHttp_Header()
 
 void	Request::Parse_Request(std::string& HttpRequest)
 {
-
-	
 	// Create an input string stream because getline not take string as a parametre 
 	std::istringstream ss(HttpRequest);
 	std::string line;

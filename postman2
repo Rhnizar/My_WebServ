@@ -1,10 +1,773 @@
-Old	ReqPath ====>>>      /app1/??&=k1=v1&k2=v2&k3=v3
-Key = 			Value = k1=v1
-Key = k2			Value = v2
-Key = k3			Value = v3
-queryparams ====>>>      ??&=k1=v1&k2=v2&k3=v3
-ReqPath ====>>>      /app1/
-GET /app1/??&=k1=v1&k2=v2&k3=v3 HTTP/1.1
+==========================> Server[0] <==========================
+server name: []
+host: [16777343]
+ports: 
+	80
+	81
+	82
+	83
+	1024
+root: [/Users/rrhnizar/Desktop/MyWebServ2/Resources]
+index: 
+	index.html
+try_files: 
+autoindex: [1]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+	3gp: video/3gpp
+	3gpp: video/3gpp
+	7z: application/x-7z-compressed
+	ai: application/postscript
+	asf: video/x-ms-asf
+	asx: video/x-ms-asf
+	atom: application/atom+xml
+	avi: video/x-msvideo
+	avif: image/avif
+	bin: application/octet-stream
+	bmp: image/x-ms-bmp
+	cco: application/x-cocoa
+	crt: application/x-x509-ca-cert
+	css: text/css
+	deb: application/octet-stream
+	der: application/x-x509-ca-cert
+	dll: application/octet-stream
+	dmg: application/octet-stream
+	doc: application/msword
+	docx: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	ear: application/java-archive
+	eot: application/vnd.ms-fontobject
+	eps: application/postscript
+	exe: application/octet-stream
+	flv: video/x-flv
+	gif: image/gif
+	hqx: application/mac-binhex40
+	htc: text/x-component
+	htm: text/html
+	html: text/html
+	ico: image/x-icon
+	img: application/octet-stream
+	iso: application/octet-stream
+	jad: text/vnd.sun.j2me.app-descriptor
+	jar: application/java-archive
+	jardiff: application/x-java-archive-diff
+	jng: image/x-jng
+	jnlp: application/x-java-jnlp-file
+	jpeg: image/jpeg
+	jpg: image/jpeg
+	js: application/javascript
+	json: application/json
+	kar: audio/midi
+	kml: application/vnd.google-earth.kml+xml
+	kmz: application/vnd.google-earth.kmz
+	m3u8: application/vnd.apple.mpegurl
+	m4a: audio/x-m4a
+	m4v: video/x-m4v
+	mid: audio/midi
+	midi: audio/midi
+	mml: text/mathml
+	mng: video/x-mng
+	mov: video/quicktime
+	mp3: audio/mpeg
+	mp4: video/mp4
+	mpeg: video/mpeg
+	mpg: video/mpeg
+	msi: application/octet-stream
+	msm: application/octet-stream
+	msp: application/octet-stream
+	odg: application/vnd.oasis.opendocument.graphics
+	odp: application/vnd.oasis.opendocument.presentation
+	ods: application/vnd.oasis.opendocument.spreadsheet
+	odt: application/vnd.oasis.opendocument.text
+	ogg: audio/ogg
+	pdb: application/x-pilot
+	pdf: application/pdf
+	pem: application/x-x509-ca-cert
+	pl: application/x-perl
+	pm: application/x-perl
+	png: image/png
+	ppt: application/vnd.ms-powerpoint
+	pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+	prc: application/x-pilot
+	ps: application/postscript
+	ra: audio/x-realaudio
+	rar: application/x-rar-compressed
+	rpm: application/x-redhat-package-manager
+	rss: application/rss+xml
+	rtf: application/rtf
+	run: application/x-makeself
+	sea: application/x-sea
+	shtml: text/html
+	sit: application/x-stuffit
+	svg: image/svg+xml
+	svgz: image/svg+xml
+	swf: application/x-shockwave-flash
+	tcl: application/x-tcl
+	tif: image/tiff
+	tiff: image/tiff
+	tk: application/x-tcl
+	ts: video/mp2t
+	txt: text/plain
+	war: application/java-archive
+	wasm: application/wasm
+	wbmp: image/vnd.wap.wbmp
+	webm: video/webm
+	webp: image/webp
+	wml: text/vnd.wap.wml
+	wmlc: application/vnd.wap.wmlc
+	wmv: video/x-ms-wmv
+	woff: font/woff
+	woff2: font/woff2
+	xhtml: application/xhtml+xml
+	xls: application/vnd.ms-excel
+	xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+	xml: text/xml
+	xpi: application/x-xpinstall
+	xspf: application/xspf+xml
+	zip: application/zip
+locations: 
+---------------->path: /app2
+root: [/Users/rrhnizar/Desktop/MyWebServ2/Resources]
+index: 
+	index.html
+try_files: 
+autoindex: [1]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+	3gp: video/3gpp
+	3gpp: video/3gpp
+	7z: application/x-7z-compressed
+	ai: application/postscript
+	asf: video/x-ms-asf
+	asx: video/x-ms-asf
+	atom: application/atom+xml
+	avi: video/x-msvideo
+	avif: image/avif
+	bin: application/octet-stream
+	bmp: image/x-ms-bmp
+	cco: application/x-cocoa
+	crt: application/x-x509-ca-cert
+	css: text/css
+	deb: application/octet-stream
+	der: application/x-x509-ca-cert
+	dll: application/octet-stream
+	dmg: application/octet-stream
+	doc: application/msword
+	docx: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	ear: application/java-archive
+	eot: application/vnd.ms-fontobject
+	eps: application/postscript
+	exe: application/octet-stream
+	flv: video/x-flv
+	gif: image/gif
+	hqx: application/mac-binhex40
+	htc: text/x-component
+	htm: text/html
+	html: text/html
+	ico: image/x-icon
+	img: application/octet-stream
+	iso: application/octet-stream
+	jad: text/vnd.sun.j2me.app-descriptor
+	jar: application/java-archive
+	jardiff: application/x-java-archive-diff
+	jng: image/x-jng
+	jnlp: application/x-java-jnlp-file
+	jpeg: image/jpeg
+	jpg: image/jpeg
+	js: application/javascript
+	json: application/json
+	kar: audio/midi
+	kml: application/vnd.google-earth.kml+xml
+	kmz: application/vnd.google-earth.kmz
+	m3u8: application/vnd.apple.mpegurl
+	m4a: audio/x-m4a
+	m4v: video/x-m4v
+	mid: audio/midi
+	midi: audio/midi
+	mml: text/mathml
+	mng: video/x-mng
+	mov: video/quicktime
+	mp3: audio/mpeg
+	mp4: video/mp4
+	mpeg: video/mpeg
+	mpg: video/mpeg
+	msi: application/octet-stream
+	msm: application/octet-stream
+	msp: application/octet-stream
+	odg: application/vnd.oasis.opendocument.graphics
+	odp: application/vnd.oasis.opendocument.presentation
+	ods: application/vnd.oasis.opendocument.spreadsheet
+	odt: application/vnd.oasis.opendocument.text
+	ogg: audio/ogg
+	pdb: application/x-pilot
+	pdf: application/pdf
+	pem: application/x-x509-ca-cert
+	pl: application/x-perl
+	pm: application/x-perl
+	png: image/png
+	ppt: application/vnd.ms-powerpoint
+	pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+	prc: application/x-pilot
+	ps: application/postscript
+	ra: audio/x-realaudio
+	rar: application/x-rar-compressed
+	rpm: application/x-redhat-package-manager
+	rss: application/rss+xml
+	rtf: application/rtf
+	run: application/x-makeself
+	sea: application/x-sea
+	shtml: text/html
+	sit: application/x-stuffit
+	svg: image/svg+xml
+	svgz: image/svg+xml
+	swf: application/x-shockwave-flash
+	tcl: application/x-tcl
+	tif: image/tiff
+	tiff: image/tiff
+	tk: application/x-tcl
+	ts: video/mp2t
+	txt: text/plain
+	war: application/java-archive
+	wasm: application/wasm
+	wbmp: image/vnd.wap.wbmp
+	webm: video/webm
+	webp: image/webp
+	wml: text/vnd.wap.wml
+	wmlc: application/vnd.wap.wmlc
+	wmv: video/x-ms-wmv
+	woff: font/woff
+	woff2: font/woff2
+	xhtml: application/xhtml+xml
+	xls: application/vnd.ms-excel
+	xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+	xml: text/xml
+	xpi: application/x-xpinstall
+	xspf: application/xspf+xml
+	zip: application/zip
+<----------------
+---------------->path: /oxer-html
+root: [/Users/rrhnizar/Desktop/MyWebServ2/Resources]
+index: 
+	blog.html
+	bhb
+	hufh
+	hufh
+try_files: 
+autoindex: [0]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+	3gp: video/3gpp
+	3gpp: video/3gpp
+	7z: application/x-7z-compressed
+	ai: application/postscript
+	asf: video/x-ms-asf
+	asx: video/x-ms-asf
+	atom: application/atom+xml
+	avi: video/x-msvideo
+	avif: image/avif
+	bin: application/octet-stream
+	bmp: image/x-ms-bmp
+	cco: application/x-cocoa
+	crt: application/x-x509-ca-cert
+	css: text/css
+	deb: application/octet-stream
+	der: application/x-x509-ca-cert
+	dll: application/octet-stream
+	dmg: application/octet-stream
+	doc: application/msword
+	docx: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	ear: application/java-archive
+	eot: application/vnd.ms-fontobject
+	eps: application/postscript
+	exe: application/octet-stream
+	flv: video/x-flv
+	gif: image/gif
+	hqx: application/mac-binhex40
+	htc: text/x-component
+	htm: text/html
+	html: text/html
+	ico: image/x-icon
+	img: application/octet-stream
+	iso: application/octet-stream
+	jad: text/vnd.sun.j2me.app-descriptor
+	jar: application/java-archive
+	jardiff: application/x-java-archive-diff
+	jng: image/x-jng
+	jnlp: application/x-java-jnlp-file
+	jpeg: image/jpeg
+	jpg: image/jpeg
+	js: application/javascript
+	json: application/json
+	kar: audio/midi
+	kml: application/vnd.google-earth.kml+xml
+	kmz: application/vnd.google-earth.kmz
+	m3u8: application/vnd.apple.mpegurl
+	m4a: audio/x-m4a
+	m4v: video/x-m4v
+	mid: audio/midi
+	midi: audio/midi
+	mml: text/mathml
+	mng: video/x-mng
+	mov: video/quicktime
+	mp3: audio/mpeg
+	mp4: video/mp4
+	mpeg: video/mpeg
+	mpg: video/mpeg
+	msi: application/octet-stream
+	msm: application/octet-stream
+	msp: application/octet-stream
+	odg: application/vnd.oasis.opendocument.graphics
+	odp: application/vnd.oasis.opendocument.presentation
+	ods: application/vnd.oasis.opendocument.spreadsheet
+	odt: application/vnd.oasis.opendocument.text
+	ogg: audio/ogg
+	pdb: application/x-pilot
+	pdf: application/pdf
+	pem: application/x-x509-ca-cert
+	pl: application/x-perl
+	pm: application/x-perl
+	png: image/png
+	ppt: application/vnd.ms-powerpoint
+	pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+	prc: application/x-pilot
+	ps: application/postscript
+	ra: audio/x-realaudio
+	rar: application/x-rar-compressed
+	rpm: application/x-redhat-package-manager
+	rss: application/rss+xml
+	rtf: application/rtf
+	run: application/x-makeself
+	sea: application/x-sea
+	shtml: text/html
+	sit: application/x-stuffit
+	svg: image/svg+xml
+	svgz: image/svg+xml
+	swf: application/x-shockwave-flash
+	tcl: application/x-tcl
+	tif: image/tiff
+	tiff: image/tiff
+	tk: application/x-tcl
+	ts: video/mp2t
+	txt: text/plain
+	war: application/java-archive
+	wasm: application/wasm
+	wbmp: image/vnd.wap.wbmp
+	webm: video/webm
+	webp: image/webp
+	wml: text/vnd.wap.wml
+	wmlc: application/vnd.wap.wmlc
+	wmv: video/x-ms-wmv
+	woff: font/woff
+	woff2: font/woff2
+	xhtml: application/xhtml+xml
+	xls: application/vnd.ms-excel
+	xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+	xml: text/xml
+	xpi: application/x-xpinstall
+	xspf: application/xspf+xml
+	zip: application/zip
+<----------------
+---------------->path: /app1
+root: [/Users/rrhnizar/Desktop/MyWebServ2/Resources]
+index: 
+	"   ".html
+try_files: 
+autoindex: [1]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+	3gp: video/3gpp
+	3gpp: video/3gpp
+	7z: application/x-7z-compressed
+	ai: application/postscript
+	asf: video/x-ms-asf
+	asx: video/x-ms-asf
+	atom: application/atom+xml
+	avi: video/x-msvideo
+	avif: image/avif
+	bin: application/octet-stream
+	bmp: image/x-ms-bmp
+	cco: application/x-cocoa
+	crt: application/x-x509-ca-cert
+	css: text/css
+	deb: application/octet-stream
+	der: application/x-x509-ca-cert
+	dll: application/octet-stream
+	dmg: application/octet-stream
+	doc: application/msword
+	docx: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	ear: application/java-archive
+	eot: application/vnd.ms-fontobject
+	eps: application/postscript
+	exe: application/octet-stream
+	flv: video/x-flv
+	gif: image/gif
+	hqx: application/mac-binhex40
+	htc: text/x-component
+	htm: text/html
+	html: text/html
+	ico: image/x-icon
+	img: application/octet-stream
+	iso: application/octet-stream
+	jad: text/vnd.sun.j2me.app-descriptor
+	jar: application/java-archive
+	jardiff: application/x-java-archive-diff
+	jng: image/x-jng
+	jnlp: application/x-java-jnlp-file
+	jpeg: image/jpeg
+	jpg: image/jpeg
+	js: application/javascript
+	json: application/json
+	kar: audio/midi
+	kml: application/vnd.google-earth.kml+xml
+	kmz: application/vnd.google-earth.kmz
+	m3u8: application/vnd.apple.mpegurl
+	m4a: audio/x-m4a
+	m4v: video/x-m4v
+	mid: audio/midi
+	midi: audio/midi
+	mml: text/mathml
+	mng: video/x-mng
+	mov: video/quicktime
+	mp3: audio/mpeg
+	mp4: video/mp4
+	mpeg: video/mpeg
+	mpg: video/mpeg
+	msi: application/octet-stream
+	msm: application/octet-stream
+	msp: application/octet-stream
+	odg: application/vnd.oasis.opendocument.graphics
+	odp: application/vnd.oasis.opendocument.presentation
+	ods: application/vnd.oasis.opendocument.spreadsheet
+	odt: application/vnd.oasis.opendocument.text
+	ogg: audio/ogg
+	pdb: application/x-pilot
+	pdf: application/pdf
+	pem: application/x-x509-ca-cert
+	pl: application/x-perl
+	pm: application/x-perl
+	png: image/png
+	ppt: application/vnd.ms-powerpoint
+	pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+	prc: application/x-pilot
+	ps: application/postscript
+	ra: audio/x-realaudio
+	rar: application/x-rar-compressed
+	rpm: application/x-redhat-package-manager
+	rss: application/rss+xml
+	rtf: application/rtf
+	run: application/x-makeself
+	sea: application/x-sea
+	shtml: text/html
+	sit: application/x-stuffit
+	svg: image/svg+xml
+	svgz: image/svg+xml
+	swf: application/x-shockwave-flash
+	tcl: application/x-tcl
+	tif: image/tiff
+	tiff: image/tiff
+	tk: application/x-tcl
+	ts: video/mp2t
+	txt: text/plain
+	war: application/java-archive
+	wasm: application/wasm
+	wbmp: image/vnd.wap.wbmp
+	webm: video/webm
+	webp: image/webp
+	wml: text/vnd.wap.wml
+	wmlc: application/vnd.wap.wmlc
+	wmv: video/x-ms-wmv
+	woff: font/woff
+	woff2: font/woff2
+	xhtml: application/xhtml+xml
+	xls: application/vnd.ms-excel
+	xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+	xml: text/xml
+	xpi: application/x-xpinstall
+	xspf: application/xspf+xml
+	zip: application/zip
+<----------------
+---------------->path: /
+root: [/Users/rrhnizar/Desktop/MyWebServ2/Resources]
+index: 
+	index.html
+try_files: 
+autoindex: [1]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+	3gp: video/3gpp
+	3gpp: video/3gpp
+	7z: application/x-7z-compressed
+	ai: application/postscript
+	asf: video/x-ms-asf
+	asx: video/x-ms-asf
+	atom: application/atom+xml
+	avi: video/x-msvideo
+	avif: image/avif
+	bin: application/octet-stream
+	bmp: image/x-ms-bmp
+	cco: application/x-cocoa
+	crt: application/x-x509-ca-cert
+	css: text/css
+	deb: application/octet-stream
+	der: application/x-x509-ca-cert
+	dll: application/octet-stream
+	dmg: application/octet-stream
+	doc: application/msword
+	docx: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	ear: application/java-archive
+	eot: application/vnd.ms-fontobject
+	eps: application/postscript
+	exe: application/octet-stream
+	flv: video/x-flv
+	gif: image/gif
+	hqx: application/mac-binhex40
+	htc: text/x-component
+	htm: text/html
+	html: text/html
+	ico: image/x-icon
+	img: application/octet-stream
+	iso: application/octet-stream
+	jad: text/vnd.sun.j2me.app-descriptor
+	jar: application/java-archive
+	jardiff: application/x-java-archive-diff
+	jng: image/x-jng
+	jnlp: application/x-java-jnlp-file
+	jpeg: image/jpeg
+	jpg: image/jpeg
+	js: application/javascript
+	json: application/json
+	kar: audio/midi
+	kml: application/vnd.google-earth.kml+xml
+	kmz: application/vnd.google-earth.kmz
+	m3u8: application/vnd.apple.mpegurl
+	m4a: audio/x-m4a
+	m4v: video/x-m4v
+	mid: audio/midi
+	midi: audio/midi
+	mml: text/mathml
+	mng: video/x-mng
+	mov: video/quicktime
+	mp3: audio/mpeg
+	mp4: video/mp4
+	mpeg: video/mpeg
+	mpg: video/mpeg
+	msi: application/octet-stream
+	msm: application/octet-stream
+	msp: application/octet-stream
+	odg: application/vnd.oasis.opendocument.graphics
+	odp: application/vnd.oasis.opendocument.presentation
+	ods: application/vnd.oasis.opendocument.spreadsheet
+	odt: application/vnd.oasis.opendocument.text
+	ogg: audio/ogg
+	pdb: application/x-pilot
+	pdf: application/pdf
+	pem: application/x-x509-ca-cert
+	pl: application/x-perl
+	pm: application/x-perl
+	png: image/png
+	ppt: application/vnd.ms-powerpoint
+	pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+	prc: application/x-pilot
+	ps: application/postscript
+	ra: audio/x-realaudio
+	rar: application/x-rar-compressed
+	rpm: application/x-redhat-package-manager
+	rss: application/rss+xml
+	rtf: application/rtf
+	run: application/x-makeself
+	sea: application/x-sea
+	shtml: text/html
+	sit: application/x-stuffit
+	svg: image/svg+xml
+	svgz: image/svg+xml
+	swf: application/x-shockwave-flash
+	tcl: application/x-tcl
+	tif: image/tiff
+	tiff: image/tiff
+	tk: application/x-tcl
+	ts: video/mp2t
+	txt: text/plain
+	war: application/java-archive
+	wasm: application/wasm
+	wbmp: image/vnd.wap.wbmp
+	webm: video/webm
+	webp: image/webp
+	wml: text/vnd.wap.wml
+	wmlc: application/vnd.wap.wmlc
+	wmv: video/x-ms-wmv
+	woff: font/woff
+	woff2: font/woff2
+	xhtml: application/xhtml+xml
+	xls: application/vnd.ms-excel
+	xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+	xml: text/xml
+	xpi: application/x-xpinstall
+	xspf: application/xspf+xml
+	zip: application/zip
+<----------------
+---------------->path: /app3
+root: [/Users/rrhnizar/Desktop/MyWebServ2/Resources]
+index: 
+	test1.html
+	test2.html
+	test3.html
+try_files: 
+autoindex: [0]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+	3gp: video/3gpp
+	3gpp: video/3gpp
+	7z: application/x-7z-compressed
+	ai: application/postscript
+	asf: video/x-ms-asf
+	asx: video/x-ms-asf
+	atom: application/atom+xml
+	avi: video/x-msvideo
+	avif: image/avif
+	bin: application/octet-stream
+	bmp: image/x-ms-bmp
+	cco: application/x-cocoa
+	crt: application/x-x509-ca-cert
+	css: text/css
+	deb: application/octet-stream
+	der: application/x-x509-ca-cert
+	dll: application/octet-stream
+	dmg: application/octet-stream
+	doc: application/msword
+	docx: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	ear: application/java-archive
+	eot: application/vnd.ms-fontobject
+	eps: application/postscript
+	exe: application/octet-stream
+	flv: video/x-flv
+	gif: image/gif
+	hqx: application/mac-binhex40
+	htc: text/x-component
+	htm: text/html
+	html: text/html
+	ico: image/x-icon
+	img: application/octet-stream
+	iso: application/octet-stream
+	jad: text/vnd.sun.j2me.app-descriptor
+	jar: application/java-archive
+	jardiff: application/x-java-archive-diff
+	jng: image/x-jng
+	jnlp: application/x-java-jnlp-file
+	jpeg: image/jpeg
+	jpg: image/jpeg
+	js: application/javascript
+	json: application/json
+	kar: audio/midi
+	kml: application/vnd.google-earth.kml+xml
+	kmz: application/vnd.google-earth.kmz
+	m3u8: application/vnd.apple.mpegurl
+	m4a: audio/x-m4a
+	m4v: video/x-m4v
+	mid: audio/midi
+	midi: audio/midi
+	mml: text/mathml
+	mng: video/x-mng
+	mov: video/quicktime
+	mp3: audio/mpeg
+	mp4: video/mp4
+	mpeg: video/mpeg
+	mpg: video/mpeg
+	msi: application/octet-stream
+	msm: application/octet-stream
+	msp: application/octet-stream
+	odg: application/vnd.oasis.opendocument.graphics
+	odp: application/vnd.oasis.opendocument.presentation
+	ods: application/vnd.oasis.opendocument.spreadsheet
+	odt: application/vnd.oasis.opendocument.text
+	ogg: audio/ogg
+	pdb: application/x-pilot
+	pdf: application/pdf
+	pem: application/x-x509-ca-cert
+	pl: application/x-perl
+	pm: application/x-perl
+	png: image/png
+	ppt: application/vnd.ms-powerpoint
+	pptx: application/vnd.openxmlformats-officedocument.presentationml.presentation
+	prc: application/x-pilot
+	ps: application/postscript
+	ra: audio/x-realaudio
+	rar: application/x-rar-compressed
+	rpm: application/x-redhat-package-manager
+	rss: application/rss+xml
+	rtf: application/rtf
+	run: application/x-makeself
+	sea: application/x-sea
+	shtml: text/html
+	sit: application/x-stuffit
+	svg: image/svg+xml
+	svgz: image/svg+xml
+	swf: application/x-shockwave-flash
+	tcl: application/x-tcl
+	tif: image/tiff
+	tiff: image/tiff
+	tk: application/x-tcl
+	ts: video/mp2t
+	txt: text/plain
+	war: application/java-archive
+	wasm: application/wasm
+	wbmp: image/vnd.wap.wbmp
+	webm: video/webm
+	webp: image/webp
+	wml: text/vnd.wap.wml
+	wmlc: application/vnd.wap.wmlc
+	wmv: video/x-ms-wmv
+	woff: font/woff
+	woff2: font/woff2
+	xhtml: application/xhtml+xml
+	xls: application/vnd.ms-excel
+	xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+	xml: text/xml
+	xpi: application/x-xpinstall
+	xspf: application/xspf+xml
+	zip: application/zip
+<----------------
+==========================> Server[1] <==========================
+server name: []
+host: [16777343]
+ports: 
+	45
+root: [/]
+index: 
+	index.html
+try_files: 
+autoindex: [1]
+client_max_body_size: [1048576]
+error_log: [./logs/error_log.log]
+access_log: [./logs/access_log.log]
+error_pages: 
+allowed_methods: 
+types: 
+locations: 
+Old	ReqPath ====>>>      /app1
+GET /app1 HTTP/1.1
 Host: 127.0.0.1:1024
 Connection: keep-alive
 sec-ch-ua: "Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"
@@ -18,18 +781,17 @@ Sec-Fetch-Mode: navigate
 Sec-Fetch-User: ?1
 Sec-Fetch-Dest: document
 Accept-Encoding: gzip, deflate, br
-Accept-Language: en-US,en;q=0.9,fr;q=0.8,ar;q=0.7
+Accept-Language: en-US,en;q=0.9
 
 
 _host = [127.0.0.1:1024]
-Req.getReqLine().getPath()  /app1/
+Req.getReqLine().getPath()  /app1
 Root =  /Users/rrhnizar/Desktop/MyWebServ2/Resources
-==>    /Users/rrhnizar/Desktop/MyWebServ2/Resources/app1/
-======>  [/Users/rrhnizar/Desktop/MyWebServ2/Resources/app1/?????????.html]
-Response =  
-HTTP/1.1 200 OK
+==>    /Users/rrhnizar/Desktop/MyWebServ2/Resources/app1
+Response 301  =  
+HTTP/1.1 301 Moved Permanently
 Content-Type: text/html
-Content-Length: 10
+Content-Length: 0
+Location: http://127.0.0.1:45/app1/
 
-?????????
 

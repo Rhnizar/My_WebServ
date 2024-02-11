@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:17 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/09 15:45:54 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:47:47 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "../ConfigParsing/StringExtensions.hpp"
 #include <sys/stat.h>
 #include <iostream>
-#include <dirent.h>
+#include <dirent.h> // include this headre for use DIR struct
 
 
 

@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/10 18:02:31 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:55:16 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,8 +249,13 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 {
 	if(Req.getReqLine().getPath()[Req.getReqLine().getPath().size() - 1] != '/')
 	{
+		// response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: /"
+		// 		 	+ Req.getReqLine().getPath() + "/\r\n\r\n";
+		(void)_host;
+		string tmp = "127.0.0.1:45";
+		// _host = "127.0.0.1:45";
 		response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: http://"
-				 	+ _host + Req.getReqLine().getPath() + "/\r\n\r\n";
+				 	+ tmp + Req.getReqLine().getPath() + "/\r\n\r\n";
 		std::cout << "Response 301  =  \n" << response << std::endl;
 		send(clientSocket, response.c_str(), response.size(), 0);
 		close(clientSocket);

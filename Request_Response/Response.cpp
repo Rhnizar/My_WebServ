@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/11 17:55:16 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:39:13 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ std::string	Response::Fill_Response(std::string	Stat_Code, std::string	Stat_Msg,
 		ResHeader.setContentFile(ResPath);
 	ResHeader.setContentLength(str_utils::to_string(ResHeader.getContentFile().size()));
 	size_t pos = ResPath.find('.');
-	ResHeader.setContentType(location.getMimeTypeByKey(ResPath.substr(pos + 1)));
+	ResHeader.setContentType(location.getMimeTypeByKey(ResPath.substr(pos + 1)));//this line needs to more checks.
 
 	
 	// ResHeader.setContentType();
@@ -251,11 +251,11 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 	{
 		// response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: /"
 		// 		 	+ Req.getReqLine().getPath() + "/\r\n\r\n";
-		(void)_host;
-		string tmp = "127.0.0.1:45";
+		// (void)_host;
+		// string tmp = "127.0.0.1:45";
 		// _host = "127.0.0.1:45";
 		response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: http://"
-				 	+ tmp + Req.getReqLine().getPath() + "/\r\n\r\n";
+				 	+ _host + Req.getReqLine().getPath() + "/\r\n\r\n";
 		std::cout << "Response 301  =  \n" << response << std::endl;
 		send(clientSocket, response.c_str(), response.size(), 0);
 		close(clientSocket);
@@ -264,6 +264,7 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 	// i need function return file to serve and in case not found file return empty string 
 	// ResPath = getFileByRootRoot_ReqPath(Root_ReqPath);
 	// if(ResPath.empty()) it mean not found file 
+	std::cout << "Root_ReqPath ===>   " << Root_ReqPath << std::endl;
 	ResPath = location.getIndexFilePathByRoot(Root_ReqPath);
 	std::cout << "======>  " << "[" << ResPath << "]" << std::endl;
 	// ResPath = Root_ReqPath + "index.html";
@@ -272,7 +273,7 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 	if(ResPath.empty() == 0)
 	{
 		response = Fill_Response("200", "OK", 0, location);
-		//servi file 
+		//servi file  
 	}
 	else if(location.getAutoIndex() == 1)
 	{

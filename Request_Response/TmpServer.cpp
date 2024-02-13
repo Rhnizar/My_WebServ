@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:35:32 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/11 17:08:59 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:08:02 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void error(std::string msg)
 void server(const std::string& fileName, int portno)
 {
 	Parser parser(fileName);
-	parser.dump();
+	// parser.dump();
 	
 	int sockfd, newsockfd, n;
 	struct sockaddr_in serv_add, cli_add;
@@ -65,7 +65,7 @@ void server(const std::string& fileName, int portno)
 			error("Error on reading.\n");
 		std::string buf(buffer, n);
 		httpRequest += buf;
-		
+		std::cout << "Request =  \n" << httpRequest << std::endl;
 		Request request;
 		request.Parse_Request(httpRequest);
 		std::cout << httpRequest << std::endl;

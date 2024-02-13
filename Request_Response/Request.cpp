@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:09 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/11 14:45:17 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:38:46 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ void	RequestLine::Parse_ReqLine(std::string line)
     size_t pos2 = line.find(' ', pos1 + 1);
     size_t pos3 = line.find_last_of(' ');
 
-	 // Extract values
+	// Extract values
 	setMethod(line.substr(0, pos1));
-	setPath(line.substr(pos1 + 1, pos2 - pos1 - 1));
-	setHttpVersion(line.substr(pos3 + 1));
-	
-	std::cout << "Old	ReqPath ====>>>      " << getPath() << std::endl;
+	setPath(line.substr(pos1 + 1, pos2 - pos1 - 1)); // pos2 - pos1 - 1 ==> is lenght of the substring
+	setHttpVersion(line.substr(pos3 + 1, line.length() - pos2 - 2)); // add line.length() - pos2 - 2 for not need to add \n in this word 
+	std::cout << "method =  [" << getMethod() << "]  Path =  [" << getPath() << "]  HttpVersion = [" << getHttpVersion() << "]" << std::endl;
+	// std::cout << "Old	ReqPath ====>>>      " << getPath() << std::endl;
 	size_t	pos = getPath().find('?');
 	size_t	TmpPos = pos;
 	while (pos != std::string::npos && getPath()[pos] == '?')
@@ -176,10 +176,10 @@ void	Request::Parse_Request(std::string& HttpRequest)
 			// Remove leading and trailing whitespaces from key and value
 			// but is useless remove leading and trailing whitespaces because in nginx it's possible serve
 			// file with spaces or tab
-            key.erase(0, key.find_first_not_of(" \t\r"));
-            key.erase(key.find_last_not_of(" \t\r") + 1);
-            value.erase(0, value.find_first_not_of(" \t\r"));
-            value.erase(value.find_last_not_of(" \t\r") + 1);
+            // key.erase(0, key.find_first_not_of(" \t\r"));
+            // key.erase(key.find_last_not_of(" \t\r") + 1);
+            // value.erase(0, value.find_first_not_of(" \t\r"));
+            // value.erase(value.find_last_not_of(" \t\r") + 1);
 			
 			// Store in the Vector
 			Header.push_back(std::make_pair(key, value));

@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:17 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/11 14:47:47 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:35:58 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,19 @@ class ResponseHeader
 		std::string	ContentType;
 		std::string ContentLength;
 		std::string	ContentFile;
+		std::string	Location;
 	public:	
 		ResponseHeader();
 		~ResponseHeader();
 		std::string getContentType() const;
 		std::string getContentLength() const;
 		std::string getContentFile() const;
+		std::string	getLocation() const;
 
-		void setContentType(std::string contenttype);
-		void setContentLength(std::string contentlength);
-		void setContentFile(std::string contentfile);
+		void 	setContentType(std::string contenttype);
+		void 	setContentLength(std::string contentlength);
+		void	setContentFile(std::string contentfile);
+		void	setLocation(std::string	location);
 };
 
 class Response
@@ -83,7 +86,8 @@ class Response
 		void	setResPath(std::string respath);
 		
 		void	ft_Response(int clientSocket, Request& Req, Parser& parser);
-		std::string	Fill_Response(std::string	Stat_Code, std::string	Stat_Msg, int File_Or_Str, Location location);
+		// std::string	Fill_Response(std::string	Stat_Code, std::string	Stat_Msg, int File_Or_Str, Location location);
+		void	Fill_Response(std::string	Stat_Code, std::string	Stat_Msg, int File_Or_Str, Location location);
 		std::string	Error_HmlPage(const std::string& stat_code, const std::string& stat_msg);
 		// Location	Find_Location(Parser& parser, std::string& _host, std::string Path_Req);
 

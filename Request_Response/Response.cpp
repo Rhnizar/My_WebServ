@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:14 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/13 14:39:13 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:13:44 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void ResponseLine::setStatus_Message(std::string status_message)
 }
 
 // part of Response headre 
-ResponseHeader::ResponseHeader():ContentType(""), ContentLength(""), ContentFile("")
+ResponseHeader::ResponseHeader():ContentType(""), ContentLength(""), ContentFile(""), Location("")
 {}
 
 ResponseHeader::~ResponseHeader()
@@ -73,6 +73,11 @@ std::string ResponseHeader::getContentFile() const
 	return ContentFile;
 }
 
+std::string	ResponseHeader::getLocation() const
+{
+	return Location;
+}
+
 void ResponseHeader::setContentType(std::string contenttype)
 {
 	ContentType = contenttype;
@@ -85,6 +90,11 @@ void ResponseHeader::setContentFile(std::string contentfile)
 {
 	ContentFile = contentfile;	
 }
+void	ResponseHeader::setLocation(std::string	location)
+{
+	Location = location;
+}
+
 
 // part of Response 
 Response::Response() : ResLine(ResponseLine()), ResHeader(ResponseHeader()), ResBody(""), ResPath("")
@@ -151,14 +161,12 @@ std::string	ReadFile(std::string&	ResPath)
     return res;
 }
 
-std::string	Response::Fill_Response(std::string	Stat_Code, std::string	Stat_Msg, int File_Or_Str, Location location)
+void	Response::Fill_Response(std::string	Stat_Code, std::string	Stat_Msg, int File_Or_Str, Location location)
 {
-	ResponseLine	Resline;
 	ResLine.setHttpVersion("HTTP/1.1");
 	ResLine.setStatus_Code(Stat_Code);
 	ResLine.setStatus_Message(Stat_Msg);
-	
-	ResponseHeader	ResHeader;
+
 	if(File_Or_Str == 0)
 		ResHeader.setContentFile(ReadFile(ResPath));
 	else
@@ -167,15 +175,17 @@ std::string	Response::Fill_Response(std::string	Stat_Code, std::string	Stat_Msg,
 	size_t pos = ResPath.find('.');
 	ResHeader.setContentType(location.getMimeTypeByKey(ResPath.substr(pos + 1)));//this line needs to more checks.
 
-	
-	// ResHeader.setContentType();
 
-	std::string	response = ResLine.getHttpVersion() + " " + ResLine.getStatus_Code() + " " + ResLine.getStatus_Message() + "\r\n" +
+
+	response = ResLine.getHttpVersion() + " " + ResLine.getStatus_Code() + " " + ResLine.getStatus_Message() + "\r\n" +
                 "Content-Type: " + ResHeader.getContentType() + "\r\n" +
                 "Content-Length: " + ResHeader.getContentLength() + "\r\n" +
+				"Location: " + ResHeader.getLocation() + "\r\n" +
                 "\r\n" + ResHeader.getContentFile();
-	std::cout << "Response =  \n" << response << std::endl;
-    return response;
+				// std::cout << "Location:  " << ResHeader.getLocation() << std::endl;
+				
+				std::cout << "Response =  \n" << response << std::endl;
+				std::cout << "\n-----------------------------------\n";
 }
 
 std::string Directories_names(std::vector<std::string> d_names)
@@ -249,43 +259,27 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 {
 	if(Req.getReqLine().getPath()[Req.getReqLine().getPath().size() - 1] != '/')
 	{
-		// response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: /"
-		// 		 	+ Req.getReqLine().getPath() + "/\r\n\r\n";
-		// (void)_host;
-		// string tmp = "127.0.0.1:45";
-		// _host = "127.0.0.1:45";
-		response = "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/html\r\nContent-Length: 0\r\nLocation: http://"
-				 	+ _host + Req.getReqLine().getPath() + "/\r\n\r\n";
-		std::cout << "Response 301  =  \n" << response << std::endl;
+		ResHeader.setLocation("http://" + _host + Req.getReqLine().getPath() + "/");
+		ResPath = "";
+		Fill_Response("301", "Moved Permanently", 1, location);
 		send(clientSocket, response.c_str(), response.size(), 0);
 		close(clientSocket);
 		return ;
 	}
-	// i need function return file to serve and in case not found file return empty string 
-	// ResPath = getFileByRootRoot_ReqPath(Root_ReqPath);
-	// if(ResPath.empty()) it mean not found file 
-	std::cout << "Root_ReqPath ===>   " << Root_ReqPath << std::endl;
-	ResPath = location.getIndexFilePathByRoot(Root_ReqPath);
-	std::cout << "======>  " << "[" << ResPath << "]" << std::endl;
-	// ResPath = Root_ReqPath + "index.html";
-	// std::ifstream FileIndex(ResPath.c_str());
-	// if(FileIndex.is_open())
+	ResPath = location.getIndexFilePathByRoot(Root_ReqPath); // this function kat9alb 3la file ila mal9atxe xi file kat3tina empty
 	if(ResPath.empty() == 0)
 	{
-		response = Fill_Response("200", "OK", 0, location);
-		//servi file  
+		Fill_Response("200", "OK", 0, location);
 	}
 	else if(location.getAutoIndex() == 1)
 	{
 		ResPath = AutoIndex(Root_ReqPath, Req.getReqLine().getPath());
-		response = Fill_Response("200", "OK", 1, location);
-		//check auto index 
+		Fill_Response("200", "OK", 1, location);
 	}
 	else
 	{
 		ResPath = Error_HmlPage("403", "Forbiden");
-		response = Fill_Response("403", "Forbiden", 1, location);
-		// Forbiden 403
+		Fill_Response("403", "Forbiden", 1, location);
 	}
 	send(clientSocket, response.c_str(), response.size(), 0);
 	close(clientSocket);
@@ -294,7 +288,7 @@ void	Response::handleDirectoryRequest(int clientSocket, const Request& Req, cons
 void Response::handleFileRequest(int clientSocket, const std::string& filePath, Location& location)
 {
 	ResPath = filePath;
-	response = Fill_Response("200", "ok", 0, location);
+	Fill_Response("200", "ok", 0, location);
 	send(clientSocket, response.c_str(), response.size(), 0);
 	close(clientSocket);
 }
@@ -302,9 +296,19 @@ void Response::handleFileRequest(int clientSocket, const std::string& filePath, 
 void Response::handleNotFound(int clientSocket, Location& location)
 {
 	ResPath = Error_HmlPage("404", "Not Found");
-	response = Fill_Response("404", "Not Found", 1, location);
+	Fill_Response("404", "Not Found", 1, location);
 	send(clientSocket, response.c_str(), response.size(), 0);
 	close(clientSocket);
+}
+
+long	MaxBodySize(Request& Req)
+{
+	for(size_t i=0; i<Req.getHttp_Header().size(); i++)
+	{
+		if(Req.getHttp_Header()[i].first == "Content-Length")
+			return atoi(Req.getHttp_Header()[i].second.c_str());// this return needs more checks, i think bad practice using atoi here
+	}
+	return 0; // in case not found Content-Length i return 0
 }
 
 void	Response::ft_Response(int clientSocket, Request& Req, Parser& parser)
@@ -316,16 +320,32 @@ void	Response::ft_Response(int clientSocket, Request& Req, Parser& parser)
 
 
 	_host = findHostFromHeaders(Req);
-	
 	server = parser.getServerbyHost(_host);
 	location = server.getLocationByPath(Req.getReqLine().getPath());
-	
-	std::cout << "Req.getReqLine().getPath()  " << Req.getReqLine().getPath() << std::endl;
+	VecString Methods = location.getAllowedMethods();
+	std::string method = Req.getReqLine().getMethod();
+	// std::cout << "Max Body size = " << location.getClientMaxBodySize() << std::endl;
+	long	MBS = MaxBodySize(Req);
+	// std::cout << "MBS =  " << MBS << std::endl;
+	if(std::find(Methods.begin(), Methods.end(), method) == Methods.end()) // Check allowed methods
+	{
+		ResPath = Error_HmlPage("405", "Method Not Allowed");
+		Fill_Response("405", "Method Not Allowed", 1, location);
+		send(clientSocket, response.c_str(), response.size(), 0);
+		close(clientSocket);
+		return ;
+	}
+	else if(MBS > location.getClientMaxBodySize()) // Check CLient Max Body Size 
+	{
+		ResPath = Error_HmlPage("413", "Content Too Large");
+		Fill_Response("413", "Content Too Large", 1, location);
+		send(clientSocket, response.c_str(), response.size(), 0);
+		close(clientSocket);
+		return ;
+	}
 	Root_ReqPath = location.getRoot() + Req.getReqLine().getPath();
 	setResPath(Root_ReqPath);
 	std::ifstream File(Root_ReqPath.c_str());
-	std::cout << "Root =  " << location.getRoot() << std::endl;
-	std::cout << "==>    " << Root_ReqPath << std::endl;
 	if(File.is_open())
 	{
 		struct stat fileInfo;

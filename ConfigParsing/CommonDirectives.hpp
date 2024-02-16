@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:13:37 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/14 19:01:08 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:36:58 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@
 
 #include "StringExtensions.hpp"
 #include "CustomException.hpp"
+#include <algorithm> // for std::find
 
 #define MAX_CLIENT_BODY_SIZE 8589934592
 #define ERROR_LOG "./logs/error_log.log"

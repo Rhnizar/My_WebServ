@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:20:09 by rrhnizar          #+#    #+#             */
-/*   Updated: 2024/02/14 10:44:09 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:15:07 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,9 @@ void	Request::PrintHttp_Header()
 
 void	Request::Parse_Request(std::string& HttpRequest)
 {
+	// i think here i need take body with separating the body from HttpRequest like this
+	// body = content of body
+	// HttpRequest Without body = HttpRequest - body
 	// Create an input string stream because getline not take string as a parametre 
 	std::istringstream ss(HttpRequest);
 	std::string line;

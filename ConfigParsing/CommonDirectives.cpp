@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:48:02 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/02/14 19:00:58 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:34:14 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -438,7 +438,7 @@ string			CommonDirectives::getIndexFilePathByRoot(const string& _value) const
 	for (VecString_iter it = out.begin(); it != out.end();it++)
 	{
 		fullPath = _value + str_utils::remove_quotes(*it);
-		std::ifstream file(fullPath);
+		std::ifstream file(fullPath.c_str());
 		if (file.is_open())
 			return (fullPath);
 	}

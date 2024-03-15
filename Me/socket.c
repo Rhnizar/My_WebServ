@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   socket.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 15:36:49 by hdagdagu          #+#    #+#             */
-/*   Updated: 2024/03/11 17:45:55 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/12/13 13:03:18 by rrhnizar          #+#    #+#             */
+/*   Updated: 2023/12/13 13:03:38 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/header.hpp"
+#include <stdio.h>
 
-int main(int ac, char **av)
+int main()
 {
-	try
-	{
-		Parser parsedData(ac, av);
-        Wb_Server _Wb_Server(parsedData);
-	}
-	catch (CustomException ce)
-	{
-		std::cerr << ce.what() << std::endl;
-	    return (1);
-	}
-	return (0);
+	
+	return 0;
 }

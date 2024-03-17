@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:56:53 by kchaouki          #+#    #+#             */
-/*   Updated: 2024/03/15 22:40:45 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/03/17 23:05:35 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,9 +206,11 @@ pair<string, Location>	Server::getLocationByPath(const string& _path)
 		tmp = tmp.substr(0, str_utils::r_find(tmp, '/'));
 	}
 	Locations::iterator it = locations.begin();
-	while (it != locations.end())
+	while (it++ != locations.end())
+	{
 		if (it->first == "/")
 			return (*it);
+	}
 	return (L);
 }
 

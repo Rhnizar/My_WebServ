@@ -6,7 +6,7 @@
 /*   By: rrhnizar <rrhnizar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:48:53 by hdagdagu          #+#    #+#             */
-/*   Updated: 2024/03/17 23:07:37 by rrhnizar         ###   ########.fr       */
+/*   Updated: 2024/03/18 22:19:29 by rrhnizar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,6 @@ void Wb_Server::listen_to_multiple_clients(const Parser& parsedData)
 							response.setReq(request);
 							requestClient.ClientRespont = response.ft_Response(parsedData);
 							Client[SocketID] = requestClient;
-
 						}
 					}
 				}

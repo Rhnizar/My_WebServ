@@ -11,7 +11,10 @@ Regarding the way we worked on this project, most of our work was based on nginx
 This project has been a fantastic learning journey, enhancing my understanding of web development.
 
 How to use this project:
+
 1- run Command "make"
+
 2- Execute the program using "./webserv" if you want to use the default configuration file.
    Execute the program using "./webserv Path_Of_Config_file" if you want to execute
    the program using the configuration file you chose, for example "./webserv ConfigFiles/default.conf".
+
